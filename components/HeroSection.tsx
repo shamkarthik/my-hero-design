@@ -5,7 +5,7 @@ import RedoAnimText from "./typewriter/RedoAnimText";
 
 const HeroSection = () => {
   return (
-    <section id="about" className="bg-yellow dark:bg-black">
+    <section id="about" className="bg-yellow`">
       <div className="flex relative items-center overflow-hidden ">
         <div className=" w-screen mx-auto flex relative">
           <div className="sm:w-2/3 lg:w-3/5 flex flex-col relative my-auto">

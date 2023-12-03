@@ -81,7 +81,7 @@ const ProjectsSection = () => {
   };
 
   return (
-    <section id="projects" className="dark:bg-black bg-blue">
+    <section id="projects" className="bg-blue">
       <h2 className="text-4xl font-bold text-white mb-8 md:mb-12">
         My Experience
       </h2>
