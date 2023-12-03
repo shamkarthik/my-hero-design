@@ -1,9 +1,9 @@
+import Navbar from "@/components/Navbar";
+import { Analytics } from "@vercel/analytics/react";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
-import Navbar from "@/components/Navbar";
 import Link from "next/link";
-import { Analytics } from "@vercel/analytics/react";
+import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,12 +18,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body  >
+    <html lang="en">
+      <body className="scroll-smooth">
         <Navbar />
-        <main>
-        {children}
-
+        <main className="bg-black px-10 py-10">
+          <div>{children}</div>
         </main>
         <footer className="bg-black flex flex-col md:flex-row justify-between gap-10 px-10 py-10">
           <div className="p-10 rounded-2xl border border-black drop-shadow-solid flex flex-col gap-5 justify-between">
