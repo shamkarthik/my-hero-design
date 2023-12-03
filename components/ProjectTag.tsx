@@ -1,4 +1,4 @@
-import React from "react";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 type ProjectTagProps = {
   name: string;
@@ -10,12 +10,19 @@ const ProjectTag = ({ name, onClick, isSelected }: ProjectTagProps) => {
     ? "text-white border-primary-500"
     : "text-[#ADB7BE] border-slate-600 hover:border-white";
   return (
-    <button
-      className={`${buttonStyles} rounded-full border-2 px-6 py-3 text-xl cursor-pointer`}
-      onClick={() => onClick(name)}
-    >
-      {name}
-    </button>
+    <Tabs defaultValue="account" className="w-[400px]">
+      <TabsList>
+        <TabsTrigger value="account">Account</TabsTrigger>
+        <TabsTrigger value="password">Password</TabsTrigger>
+      </TabsList>
+      {/* <TabsContent value="account">
+        Make changes to your account here.
+      </TabsContent>
+      <TabsContent value="password">Change your password here.</TabsContent> */}
+    </Tabs>
+    // <button className={`${buttonStyles} `} onClick={() => onClick(name)}>
+    //   {name}
+    // </button>
   );
 };
 
