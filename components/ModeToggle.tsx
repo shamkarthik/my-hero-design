@@ -8,12 +8,10 @@ import { useAudioPlayer } from "./useAudioPlayer";
 
 export function ModeToggle() {
   const { setTheme, theme } = useTheme();
-  const { play, audioRef, src } = useAudioPlayer({
-    src: "static/im-batman.mp3",
-  });
+  const { play } = useAudioPlayer();
   const setDarkMode = () => {
     setTheme("dark");
-    play();
+    play("static/im-batman.mp3");
   };
   return (
     <>
@@ -27,7 +25,6 @@ export function ModeToggle() {
         <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
         {/* <span className="sr-only">Toggle theme</span> */}
       </Button>
-      <audio ref={audioRef} src={src} />
     </>
   );
 }

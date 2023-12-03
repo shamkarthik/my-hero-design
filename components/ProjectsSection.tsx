@@ -67,7 +67,7 @@ const ProjectsSection = () => {
   const isInView = useInView(ref, { once: true });
 
   const handleTagChange = (newTag: React.SetStateAction<string>) => {
-    console.log(newTag.toString());
+    console.log(newTag);
     setTag(newTag);
   };
 
@@ -85,27 +85,16 @@ const ProjectsSection = () => {
       <h2 className="text-4xl font-bold text-white mb-8 md:mb-12">
         My Experience
       </h2>
-      <div className="text-white flex flex-row justify-center items-center gap-2 py-6">
-        {/* <ProjectTag name="All" isSelected={tag === "All"} />
-        <ProjectTag
-          onClick={handleTagChange}
-          name="Web"
-          isSelected={tag === "Web"}
-        />
-        <ProjectTag
-          onClick={handleTagChange}
-          name="Mobile"
-          isSelected={tag === "Mobile"}
-        /> */}
-        <ToggleGroup type="single">
+      <div className="text-white flex flex-row justify-center items-center gap-4 py-6">
+        <ToggleGroup type="single" onValueChange={handleTagChange}>
           <ToggleGroupItem value="All" aria-label="Toggle bold">
             All
           </ToggleGroupItem>
           <ToggleGroupItem value="Web" aria-label="Toggle italic">
-            Web
+            Personal
           </ToggleGroupItem>
           <ToggleGroupItem value="Mobile" aria-label="Toggle strikethrough">
-            Mobile
+            Professional
           </ToggleGroupItem>
         </ToggleGroup>
       </div>

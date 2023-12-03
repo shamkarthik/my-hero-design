@@ -1,5 +1,6 @@
 "use client";
 import { useToast } from "@/components/ui/use-toast";
+import { useTextToSpeech } from "@/hooks/useTextToSpeech";
 import Image from "next/image";
 import Link from "next/link";
 import { FormEvent, useState } from "react";
@@ -19,10 +20,10 @@ interface ContactFormElement extends HTMLFormElement {
 }
 const EmailSection = () => {
   const [emailSubmitted, setEmailSubmitted] = useState(false);
-  const { play, audioRef, src } = useAudioPlayer({
-    src: "static/im-batman.mp3",
-  });
+  const { speak } = useTextToSpeech({ voice: "UK English Male" });
 
+  const { play } = useAudioPlayer();
+  // Initialize the hook with the desired callbacks for triangle and square gestures
   const { toast } = useToast();
   const handleSubmit = async (e: FormEvent<ContactFormElement>) => {
     e.preventDefault();
@@ -61,7 +62,8 @@ const EmailSection = () => {
       title: "Welcome to Batcave",
       description: "I am Batman",
     });
-    play();
+    // play("static/im-batman.mp3");
+    speak("I'm batman");
   };
 
   return (
@@ -89,7 +91,6 @@ const EmailSection = () => {
         </div>
       </div>
       <KeywordListener targetWord="asa" onKeywordTyped={handleKeywordTyped} />
-      <audio ref={audioRef} src={src} />
     </section>
   );
 };
