@@ -1,7 +1,7 @@
-import EmailSection from "@/components/EmailSection";
+import ContactSection from "@/components/Contact";
 
 const Contact = () => {
-  return <EmailSection />;
+  return <ContactSection />;
 };
 
 export default Contact;

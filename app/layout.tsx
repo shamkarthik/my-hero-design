@@ -43,7 +43,9 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Navbar />
-          <main className="container px-10 py-16 ">{children}</main>
+          <main className="container px-4 pt-24 md:px-10 md:py-16 ">
+            {children}
+          </main>
           <footer className=" flex flex-col md:flex-row justify-between gap-10 px-10 py-10">
             <div className="p-10 rounded-2xl border border-black drop-shadow-solid flex flex-col gap-5 justify-between">
               <Link href="/">
