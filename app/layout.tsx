@@ -35,7 +35,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="font-beast tracking-widest">
+      <body className="font-beast tracking-wide">
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -47,7 +47,7 @@ export default function RootLayout({
             {children}
           </main>
           <footer className=" flex flex-col md:flex-row justify-between gap-10 px-10 py-10">
-            <div className="p-10 rounded-2xl border border-black drop-shadow-solid flex flex-col gap-5 justify-between">
+            <div className="p-10 flex flex-col gap-5 justify-between">
               <Link href="/">
                 {/* <Image src={logo} alt="Logo" /> */}
                 LOGO

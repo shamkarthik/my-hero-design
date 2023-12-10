@@ -81,7 +81,7 @@ const ProjectsSection = () => {
   };
 
   return (
-    <section id="projects" className="bg-blue">
+    <>
       <h2 className="text-4xl font-bold text-white mb-8 md:mb-12">
         My Experience
       </h2>
@@ -118,7 +118,7 @@ const ProjectsSection = () => {
           </motion.li>
         ))}
       </ul>
-    </section>
+    </>
   );
 };
 

@@ -14,7 +14,9 @@ const Navbar = () => {
           {/* <Image className="w-8 m-0" src={logo} alt="Logo" /> */}
           LOGO
         </Link>
-        <Navigation />
+        <div className="-order-1 sm:order-none">
+          <Navigation />
+        </div>
         <ModeToggle />
       </header>
     </section>

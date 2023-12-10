@@ -1,8 +1,8 @@
 "use client";
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 import { Linkedin, LucideGithub, Mail } from "lucide-react";
 import Image from "next/image";
-import { ReactElement, useRef } from "react";
+import { ReactElement } from "react";
 import ContactCard from "./ContactCard";
 import AnimText from "./typewriter/AnimText";
 
@@ -31,13 +31,10 @@ const contactDetails: ContactDetailType[] = [
 ];
 
 const ContactSection = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
   const cardVariants = {
     initial: { y: 50, opacity: 0 },
     animate: { y: 0, opacity: 1 },
   };
-  console.log(isInView);
   return (
     <div className="grid grid-flow-col grid-cols-2 items-center">
       <div className="flex flex-col gap-5 col-span-1">

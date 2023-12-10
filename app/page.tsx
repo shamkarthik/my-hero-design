@@ -4,8 +4,12 @@ import ProjectsSection from "@/components/ProjectsSection";
 const Hero = () => {
   return (
     <>
-      <HeroSection />
-      <ProjectsSection />
+      <section id="about" className="bg-yellow scroll-mt-24 snap-start">
+        <HeroSection />
+      </section>
+      <section id="projects" className="bg-blue">
+        <ProjectsSection />
+      </section>
       {/* <EmailSection /> */}
     </>
   );
