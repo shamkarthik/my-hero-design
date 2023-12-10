@@ -8,8 +8,8 @@ const HeroSection = () => {
     <section id="about" className="bg-yellow`">
       <div className="flex relative items-center overflow-hidden ">
         <div className=" w-screen mx-auto flex relative">
-          <div className="sm:w-2/3 lg:w-3/5 flex flex-col relative my-auto">
-            <h1 className="font-bebas-neue uppercase text-6xl sm:text-7xl font-black flex flex-col leading-none dark:text-white text-gray-800 h-52">
+          <div className="ml-4 sm:w-2/3 lg:w-3/5 flex flex-col relative my-auto">
+            <h1 className="font-beast uppercase text-6xl sm:text-7xl font-black flex flex-col leading-none h-52">
               <AnimText delay={2} text={"I am a"} cursorHeight="14" />
               {/* <span className="text-5xl sm:text-7xl"> */}
               <RedoAnimText

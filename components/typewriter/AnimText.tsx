@@ -1,17 +1,20 @@
 "use client";
-import { motion, useMotionValue, useTransform, animate } from "framer-motion";
+import { animate, motion, useMotionValue, useTransform } from "framer-motion";
 import { useEffect, useState } from "react";
-import RedoAnimText from "./RedoAnimText";
 import CursorBlinker from "./CursorBlinker";
 
 export interface IAnimTextProps {
   delay: number;
   textClass?: string;
   text: string;
-  cursorHeight: string
+  cursorHeight: string;
 }
 
-export default function AnimText({ delay, text = "",cursorHeight }: IAnimTextProps) {
+export default function AnimText({
+  delay,
+  text = "",
+  cursorHeight,
+}: IAnimTextProps) {
   const [done, setDone] = useState(false);
   const count = useMotionValue(0);
   const rounded = useTransform(count, (latest) => Math.round(latest));
@@ -33,7 +36,7 @@ export default function AnimText({ delay, text = "",cursorHeight }: IAnimTextPro
   return (
     <span className="">
       <motion.span>{displayText}</motion.span>
-      {!done && <CursorBlinker height={cursorHeight} />}
+      {!done && displayText && <CursorBlinker height={cursorHeight} />}
     </span>
   );
 }

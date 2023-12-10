@@ -50,6 +50,13 @@
   }
 }
 
+
+
+@font-face { 
+  font-family: "beast"; 
+  src: url("../public/assets/third_rail/ThirdRail.ttf"); 
+}
+
 @layer base {
   * {
     @apply border-border;

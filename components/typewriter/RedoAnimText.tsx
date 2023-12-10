@@ -1,5 +1,5 @@
 "use client";
-import { motion, useMotionValue, useTransform, animate } from "framer-motion";
+import { animate, motion, useMotionValue, useTransform } from "framer-motion";
 import { useEffect } from "react";
 import CursorBlinker from "./CursorBlinker";
 
@@ -7,14 +7,14 @@ export interface IRedoAnimTextProps {
   delay: number;
   textClass?: string;
   texts: string[];
-  cursorHeight: string
+  cursorHeight: string;
 }
 
 export default function RedoAnimText({
   delay,
   texts,
   textClass = "",
-  cursorHeight
+  cursorHeight,
 }: IRedoAnimTextProps) {
   const textIndex = useMotionValue(0);
   const baseText = useTransform(textIndex, (latest) => texts[latest] || "");
@@ -52,7 +52,7 @@ export default function RedoAnimText({
   return (
     <>
       <motion.span className={`inline ${textClass}`}>{displayText}</motion.span>
-      <CursorBlinker height={cursorHeight} />
+      {displayText && <CursorBlinker height={cursorHeight} />}
     </>
   );
 }

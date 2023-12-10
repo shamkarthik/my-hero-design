@@ -2,10 +2,17 @@
 import { motion, useInView } from "framer-motion";
 import { Linkedin, LucideGithub, Mail } from "lucide-react";
 import Image from "next/image";
-import { useRef } from "react";
+import { ReactElement, useRef } from "react";
 import ContactCard from "./ContactCard";
 import AnimText from "./typewriter/AnimText";
-const contactDetails = [
+
+type ContactDetailType = {
+  name: string;
+  iconElement?: ReactElement;
+  redirectLink?: string;
+  icon?: string;
+};
+const contactDetails: ContactDetailType[] = [
   {
     name: "LinkedIn",
     // icon: LinkedinIcon,
@@ -34,10 +41,10 @@ const ContactSection = () => {
   return (
     <div className="grid grid-flow-col grid-cols-2 items-center">
       <div className="col-span-1">
-        <h1 className="italic uppercase font-semibold text-7xl sm:text-2xl flex flex-col leading-none h-20 text-center">
+        <h1 className="font-beast uppercase text-6xl sm:text-7xl font-black flex flex-col leading-none h-52">
           <AnimText
             delay={2}
-            text={"Want to connect with me ?"}
+            text={"Want to connect with me"}
             cursorHeight="5"
           />
         </h1>
