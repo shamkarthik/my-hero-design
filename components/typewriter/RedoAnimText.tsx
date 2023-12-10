@@ -52,7 +52,7 @@ export default function RedoAnimText({
   return (
     <>
       <motion.span className={`inline ${textClass}`}>{displayText}</motion.span>
-      {displayText && <CursorBlinker height={cursorHeight} />}
+      <CursorBlinker height={cursorHeight} />
     </>
   );
 }

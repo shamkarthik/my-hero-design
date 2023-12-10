@@ -40,22 +40,22 @@ const ContactSection = () => {
   console.log(isInView);
   return (
     <div className="grid grid-flow-col grid-cols-2 items-center">
-      <div className="col-span-1">
-        <h1 className="font-beast uppercase text-6xl sm:text-7xl font-black flex flex-col leading-none h-52">
+      <div className="flex flex-col gap-5 col-span-1">
+        <h1 className="font-beast uppercase text-3xl sm:text-5xl font-black flex flex-col leading-none h-20 text-center">
           <AnimText
-            delay={2}
+            delay={0}
             text={"Want to connect with me"}
             cursorHeight="5"
           />
         </h1>
-        <div className="grid grid-flow-row gap-4 justify-center justify-items-start">
+        <div className="grid grid-flow-row gap-4 justify-center justify-items-start mt-4">
           {contactDetails.map((contact, index) => (
             <motion.div
               key={index}
               variants={cardVariants}
               initial="initial"
               animate="animate"
-              transition={{ duration: 0.3, delay: 3 + index * 0.4 }}
+              transition={{ duration: 0.3, delay: 2 + index * 0.4 }}
             >
               <ContactCard
                 key={index}

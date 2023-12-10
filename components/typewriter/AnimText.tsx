@@ -36,7 +36,7 @@ export default function AnimText({
   return (
     <span className="">
       <motion.span>{displayText}</motion.span>
-      {!done && displayText && <CursorBlinker height={cursorHeight} />}
+      {!done && <CursorBlinker height={cursorHeight} />}
     </span>
   );
 }

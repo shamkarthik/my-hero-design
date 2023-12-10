@@ -9,24 +9,24 @@ const HeroSection = () => {
       <div className="flex relative items-center overflow-hidden ">
         <div className=" w-screen mx-auto flex relative">
           <div className="ml-4 sm:w-2/3 lg:w-3/5 flex flex-col relative my-auto">
-            <h1 className="font-beast uppercase text-6xl sm:text-7xl font-black flex flex-col leading-none h-52">
-              <AnimText delay={2} text={"I am a"} cursorHeight="14" />
+            <h1 className="font-beast uppercase text-6xl sm:text-7xl font-black flex flex-col h-44">
+              <AnimText delay={0} text={"I am a"} cursorHeight="14" />
               {/* <span className="text-5xl sm:text-7xl"> */}
               <RedoAnimText
-                delay={3}
+                delay={1}
                 texts={["developer", "frontend Engineer", "backend Engineer"]}
                 cursorHeight="14"
               />
               {/* </span> */}
             </h1>
 
-            <span className="flex flex-col text-sm sm:text-base mt-16 text-gray-700 dark:text-white w-full">
+            <span className="flex flex-col text-sm sm:text-base mt-16 text-gray-700 dark:text-white h-20 w-full">
               <AnimText
                 delay={2}
                 text={`Dimension of reality that makes change possible and
                 understandable. An indefinite and homogeneous environment in
                 which natural events and human existence take place.`}
-                cursorHeight="8"
+                cursorHeight="5"
               />
             </span>
             <div className="flex mt-8 gap-6">

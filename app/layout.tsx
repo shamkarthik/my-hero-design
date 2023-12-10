@@ -35,7 +35,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body>
+      <body className="font-beast tracking-widest">
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
