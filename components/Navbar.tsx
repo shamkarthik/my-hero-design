@@ -6,7 +6,7 @@ import { stylesClasses } from "./styleClasses";
 
 const Navbar = () => {
   return (
-    <section id="navbar" className="fixed w-full top-0 z-20 py-3 md:py-3 p-10">
+    <nav id="navbar" className="fixed w-full top-0 z-20 py-3 md:py-3 p-10 ">
       <header
         className={`w-full flex justify-between items-center ${stylesClasses.glassBackground} px-10 py-3 rounded-full`}
       >
@@ -19,7 +19,7 @@ const Navbar = () => {
         </div>
         <ModeToggle />
       </header>
-    </section>
+    </nav>
   );
 };
 

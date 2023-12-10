@@ -32,7 +32,7 @@ const Navigation = () => {
       <div className="menu hidden md:block md:w-auto" id="navbar">
         <ul className="flex p-4 md:p-0 md:flex-row md:space-x-8 mt-0">
           {navLinks.map((link, index) => (
-            <li key={index}>
+            <li key={index} className="text-xl">
               <Link href={link.path}>{link.title}</Link>
             </li>
           ))}
@@ -57,10 +57,9 @@ const Navigation = () => {
           </DropdownMenuTrigger>
           <DropdownMenuContent>
             {navLinks.map((link) => (
-              <Link href={link.path}>
+              <Link key={link.title} href={link.path}>
                 <DropdownMenuItem
                   className={`${stylesClasses.glassBackground}`}
-                  key={link.title}
                 >
                   {link.title}
                 </DropdownMenuItem>

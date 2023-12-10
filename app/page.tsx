@@ -7,7 +7,7 @@ const Hero = () => {
       <section id="about" className="bg-yellow scroll-mt-24 snap-start">
         <HeroSection />
       </section>
-      <section id="projects" className="bg-blue">
+      <section id="projects" className="bg-blue scroll-mt-24 snap-start">
         <ProjectsSection />
       </section>
       {/* <EmailSection /> */}
