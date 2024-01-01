@@ -1,5 +1,7 @@
-const BlogLayout = ({ children }: { children: React.ReactNode }) => {
-  return <section className="pt-10">{children}</section>;
-};
+interface BlogLayoutProps {
+  children: React.ReactNode;
+}
 
-export default BlogLayout;
+export default function BlogLayout({ children }: BlogLayoutProps) {
+  return <div className="mx-auto max-w-5xl">{children}</div>;
+}
