@@ -221,7 +221,9 @@ const syncContentFromGit = async (contentDir: string) => {
 const runBashCommand = (command: string) =>
   new Promise((resolve, reject) => {
     // console.log(command);
-    const child = spawn("bash", ["-c", command]);
+    // const child = spawn("bash", ["-c", command]);
+    const child = spawn(command, [], { shell: true });
+
     // console.log(child.output);
     child.stdout.setEncoding("utf8");
     child.stdout.on("data", (data) => process.stdout.write(data));
