@@ -40,9 +40,7 @@ export async function generateMetadata({
   if (!blog) {
     return {};
   }
-  // @ts-expect-error
   const url = env.NEXT_PUBLIC_APP_URL;
-  // @ts-expect-error
   console.log("env.NEXT_PUBLIC_APP_URL", env.NEXT_PUBLIC_APP_URL);
   const ogUrl = new URL(`${url}/api/og`);
   ogUrl.searchParams.set("heading", blog.title);
