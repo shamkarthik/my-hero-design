@@ -3,7 +3,9 @@ import { compareDesc } from "date-fns";
 import Link from "next/link";
 
 import { DocsPageHeader } from "@/components/page-header";
+import { env } from "@/env.mjs";
 import { formatDate } from "@/lib/utils";
+import { spawn } from "node:child_process";
 
 export const metadata = {
   title: "Blog",
@@ -17,9 +19,68 @@ export default function BlogPage() {
     .sort((a, b) => {
       return compareDesc(new Date(a.date), new Date(b.date));
     });
+  const syncContentFromGit = async () => {
+    const contentDir = "cloud";
+    const syncRun = async () => {
+      const gitUrl = env.NEXT_PUBLIC_BLOG_SYNC_URL;
+      console.log(gitUrl);
+      await runBashCommand(`
+          if [ -d  "${contentDir}" ];
+            then
+              cd "${contentDir}"; git pull;
+            else
+              git clone --depth 1 --single-branch ${gitUrl} ${contentDir};
+          fi
+        `);
+    };
 
+    let wasCancelled = false;
+    let syncInterval: string | number | NodeJS.Timeout | undefined;
+
+    const syncLoop = async () => {
+      console.log("Syncing content files from git next");
+
+      await syncRun();
+
+      if (wasCancelled) return;
+
+      syncInterval = setTimeout(syncLoop, 1000 * 60);
+    };
+
+    // Block until the first sync is done
+    await syncLoop();
+
+    return () => {
+      wasCancelled = true;
+      clearTimeout(syncInterval);
+    };
+  };
+
+  const runBashCommand = (command: string) =>
+    new Promise((resolve, reject) => {
+      // console.log(command);
+      const child = spawn("bash", ["-c", command]);
+      // const child = spawn(command, [], { shell: true })
+
+      // console.log(child.output);
+      child.stdout.setEncoding("utf8");
+      child.stdout.on("data", (data) => process.stdout.write(data));
+
+      child.stderr.setEncoding("utf8");
+      child.stderr.on("data", (data) => process.stderr.write(data));
+      child.on("close", function (code) {
+        if (code === 0) {
+          resolve(void 0);
+        } else {
+          reject(new Error(`Command failed with exit code ${code}`));
+        }
+      });
+      // child.kill();
+    });
+  syncContentFromGit();
   return (
     <div className="py-6 lg:py-10">
+      {/* <SyncBlog /> */}
       <DocsPageHeader heading="Blog" text="This section includes blogs." />
       {blogs?.length ? (
         <div className="grid gap-4 md:grid-cols-2 md:gap-6">
