@@ -5,6 +5,7 @@ export const env = createEnv({
   server: {
     NEXT_PUBLIC_BLOG_SYNC_URL: z.string().min(1),
     NEXT_PUBLIC_BLOG_SYNC_FOLDER: z.string().optional(),
+    NEXT_PUBLIC_APP_URL: z.string().min(1),
   },
   client: {
     NEXT_PUBLIC_APP_URL: z.string().min(1),
