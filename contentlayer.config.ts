@@ -7,6 +7,8 @@ import rehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
 import { env } from "./env.mjs";
 
+export const runtime = "edge";
+
 export const Doc = defineDocumentType(() => ({
   name: "Doc",
   filePathPattern: `docs/**/*.mdx`,
@@ -186,6 +188,7 @@ const syncContentFromGit = async (contentDir: string) => {
   const syncRun = async () => {
     const gitUrl = env.NEXT_PUBLIC_BLOG_SYNC_URL;
     console.log(gitUrl);
+    console.log("contentDir", contentDir);
     await runBashCommand(`
       if [ -d  "${contentDir}" ];
         then
@@ -220,9 +223,8 @@ const syncContentFromGit = async (contentDir: string) => {
 
 const runBashCommand = (command: string) =>
   new Promise((resolve, reject) => {
-    // console.log(command);
+    console.log(command);
     const child = spawn("bash", ["-c", command]);
-    // console.log(child.output);
     child.stdout.setEncoding("utf8");
     child.stdout.on("data", (data) => process.stdout.write(data));
 
@@ -235,7 +237,6 @@ const runBashCommand = (command: string) =>
         reject(new Error(`Command failed with exit code ${code}`));
       }
     });
-    // child.kill();
   });
 
 export default makeSource({
