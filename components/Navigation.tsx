@@ -8,6 +8,7 @@ import {
 import Link from "next/link";
 import { useState } from "react";
 import { stylesClasses } from "./styleClasses";
+import { useAudioPlayer } from "./useAudioPlayer";
 
 const navLinks = [
   {
@@ -30,6 +31,10 @@ const navLinks = [
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { play } = useAudioPlayer();
+  const playTechSound = () => {
+    play("/static/archivo.mp3");
+  };
   const genericHamburgerLine = `h-0.5  rounded-full w-6 bg-foreground transition ease transform duration-300`;
   return (
     <>
@@ -37,7 +42,9 @@ const Navigation = () => {
         <ul className="flex p-4 md:p-0 md:flex-row md:space-x-8 mt-0">
           {navLinks.map((link, index) => (
             <li key={index} className="text-xl">
-              <Link href={link.path}>{link.title}</Link>
+              <Link href={link.path} onClick={playTechSound}>
+                {link.title}
+              </Link>
             </li>
           ))}
         </ul>

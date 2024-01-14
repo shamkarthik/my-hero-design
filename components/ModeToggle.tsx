@@ -11,7 +11,7 @@ export function ModeToggle() {
   const { play } = useAudioPlayer();
   const setDarkMode = () => {
     setTheme("dark");
-    play("static/im-batman.mp3");
+    play("/static/im-batman.mp3");
   };
   return (
     <>
